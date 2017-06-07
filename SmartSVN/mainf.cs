@@ -532,7 +532,13 @@ namespace SmartSVN_4
                         //exec_upd_str += "&svn checkout \"" + svn_url + "\" \"" + tmp_SVNFolders[file, block] + "\" --depth infinity --force ";
                         item.files[i].file_name.Add("*");
                     }*/
-                    for (int j = 0; j < item.files[i].file_name.Count; j++)
+/*
+                    for (int j = 0; j < item.files[i].dirForCopy.Count; j++)
+                    {}
+                    */
+
+
+                        for (int j = 0; j < item.files[i].file_name.Count; j++)
                     {
                         string f = item.files[i].file_name[j];
                         //string path_cp = svn_url.Replace('\\', '/').Trim('/') + "/" + f.Replace('\\', '/');
@@ -607,6 +613,11 @@ namespace SmartSVN_4
                             {
                                 if ((child.Name == "ItemGroup") && (child.HasChildNodes) && (child.ChildNodes[0].Name == "Compile"))
                                 {
+                                   // subsc_file[file].ini_file[block].files[]
+                                    //вставсить сюда блок для компиляции файлов
+
+
+
                                     XmlNodeList child_Compile = child.ChildNodes;
                                     XmlNode temp_node;
                                     for (int j = 0; j < child_Compile.Count; j++)

@@ -81,14 +81,19 @@ class IniFile
             public bool sync_path;
             public string ext;
             public List<string> file_name;
-            public files_s(string pdir, bool psync_path, string pext, List<string> pfile_name)
+            public List<string> dirForCopy;
+
+        public files_s(string pdir, bool psync_path, string pext, List<string> pfile_name, List<string> pdirForCopy)
             {
                 dir = pdir;
                 sync_path = psync_path;
                 ext = pext;
                 file_name = pfile_name;
+                dirForCopy = pdirForCopy;
             }
-        }
+
+       // public string DirForCopy { get => dirForCopy; set => dirForCopy = value; }
+    }
     public struct vsprojects_s
         {
             public string file_prj;
@@ -146,11 +151,12 @@ class IniFile
         {
             fs = (files_s)item;
             if (String.IsNullOrEmpty(fs.ext)) fs.ext = "*";
+            if ((fs.dirForCopy == null) || (fs.dirForCopy.Count == 0)) fs.dirForCopy.Add("*");
             if ((fs.file_name == null) || (fs.file_name.Count == 0)) fs.file_name.Add("*");
             if (!String.IsNullOrEmpty(fs.dir))
             {
                 ini_file[blocks_count].files.Add(fs);
-                fs = new files_s(null, true, null, new List<string>());
+                fs = new files_s(null, true, null, new List<string>(), new List<string>());
             }
             else logs.Add("Skipped files section");
             return fs;
@@ -168,7 +174,7 @@ class IniFile
         ini_file = new blocks_s[100];
         int section = 0;
         int i, j;
-        files_s tmp_files = new files_s(null, true, null, new List<string>());
+        files_s tmp_files = new files_s(null, true, null, new List<string>(), new List<string>());
         vsprojects_s tmp_vsprj = new vsprojects_s(null, null, null, new List<string>());
         section = secNone;
         while (!sr.EndOfStream)
@@ -232,6 +238,7 @@ class IniFile
                         if (key == "SYNC_PATH") tmp_files.sync_path = (value.ToUpper() == "Y") ? true : false;
                         if (key == "FILE_EXT") tmp_files.ext = value;
                         if (key == "FILE_NAME") tmp_files.file_name.Add(value.Replace('/', '\\').Trim('\\'));
+                        if (key == "FILE_SYNC_DIR") tmp_files.dirForCopy.Add(value.Replace('/', '\\').Trim('\\'));
                     }
                     else if (section == secVSProjects)
                     {

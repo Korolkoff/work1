@@ -3,7 +3,33 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26430.6
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartSVN_4", "SmartSVN\SmartSVN_4.csproj", "{783DA14B-716C-41C6-9047-E477C6AEF181}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SET_OP_CPP", "SET_OP_CPP\SET_OP_CPP.vcxproj", "{FC852C1C-EC46-4B0A-BD82-5B52C8601D7D}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{783DA14B-716C-41C6-9047-E477C6AEF181}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{783DA14B-716C-41C6-9047-E477C6AEF181}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{783DA14B-716C-41C6-9047-E477C6AEF181}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{783DA14B-716C-41C6-9047-E477C6AEF181}.Debug|x86.Build.0 = Debug|Any CPU
+		{783DA14B-716C-41C6-9047-E477C6AEF181}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{783DA14B-716C-41C6-9047-E477C6AEF181}.Release|Any CPU.Build.0 = Release|Any CPU
+		{783DA14B-716C-41C6-9047-E477C6AEF181}.Release|x86.ActiveCfg = Release|Any CPU
+		{783DA14B-716C-41C6-9047-E477C6AEF181}.Release|x86.Build.0 = Release|Any CPU
+		{FC852C1C-EC46-4B0A-BD82-5B52C8601D7D}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{FC852C1C-EC46-4B0A-BD82-5B52C8601D7D}.Debug|x86.ActiveCfg = Debug|Win32
+		{FC852C1C-EC46-4B0A-BD82-5B52C8601D7D}.Debug|x86.Build.0 = Debug|Win32
+		{FC852C1C-EC46-4B0A-BD82-5B52C8601D7D}.Release|Any CPU.ActiveCfg = Release|Win32
+		{FC852C1C-EC46-4B0A-BD82-5B52C8601D7D}.Release|x86.ActiveCfg = Release|Win32
+		{FC852C1C-EC46-4B0A-BD82-5B52C8601D7D}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
